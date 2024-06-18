@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class= "d-flex gap-2">
+        <p>Hello, @User.Identity.Name</p>
+        <form asp-controller="Account" asp-action="Signout" method="post">
+            <button type="submit" class ="btn btn-danger">Signout</button>
+        </form>
+    </div>
+}
+else
+{
+    <a asp-controller="Account" asp-action="Login">Sign with google</a>
+}
